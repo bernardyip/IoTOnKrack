@@ -1,0 +1,482 @@
+[01:04:40] random: Trying to read entropy from /dev/random
+[01:04:40] Configuration file: hostapd_rogue.conf
+[01:04:40] ctrl_interface_group=0
+[01:04:40] nl80211: Supported cipher 00-0f-ac:1
+[01:04:40] nl80211: Supported cipher 00-0f-ac:5
+[01:04:40] nl80211: Supported cipher 00-0f-ac:2
+[01:04:40] nl80211: Supported cipher 00-0f-ac:4
+[01:04:40] nl80211: Supported vendor command: vendor_id=0x1018 subcmd=1
+[01:04:40] nl80211: Supported vendor command: vendor_id=0x1a11 subcmd=4106
+[01:04:40] nl80211: Supported vendor command: vendor_id=0x1a11 subcmd=4107
+[01:04:40] nl80211: Supported vendor event: vendor_id=0x1018 subcmd=0
+[01:04:40] nl80211: Supported vendor event: vendor_id=0x1018 subcmd=1
+[01:04:40] nl80211: interface wlb in phy phy3
+[01:04:40] nl80211: Set mode ifindex 9 iftype 3 (AP)
+[01:04:40] nl80211: Setup AP(wlb) - device_ap_sme=1 use_monitor=0
+[01:04:40] nl80211: Subscribe to mgmt frames with AP handle 0x128fec0 (device SME)
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=04
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=0501
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=0504
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=06
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=08
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=09
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=0a
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=11
+[01:04:40] nl80211: Register frame type=0xd0 (WLAN_FC_STYPE_ACTION) nl_handle=0x128fec0 match=7f
+[01:04:40] nl80211: Enable Probe Request reporting nl_preq=0x1291510
+[01:04:40] nl80211: Register frame type=0x40 (WLAN_FC_STYPE_PROBE_REQ) nl_handle=0x1291510 match=
+[01:04:40] rfkill: initial event: idx=3 type=1 op=0 soft=0 hard=0
+[01:04:40] nl80211: Add own interface ifindex 9 (ifidx_reason -1)
+[01:04:40] nl80211: if_indices[16]: 9(-1)
+[01:04:40] phy: phy3
+[01:04:40] BSS count 1, BSSID mask 00:00:00:00:00:00 (0 bits)
+[01:04:40] Using existing control interface directory.
+[01:04:40] ctrl_iface bind(PF_UNIX) failed: Address already in use
+[01:04:40] ctrl_iface exists, but does not allow connections - assuming it was leftover from forced program termination
+[01:04:40] Successfully replaced leftover ctrl_iface socket 'hostapd_ctrl/wlb'
+[01:04:40] nl80211: Regulatory information - country=00
+[01:04:40] nl80211: 2402-2472 @ 40 MHz 20 mBm
+[01:04:40] nl80211: 2457-2482 @ 40 MHz 20 mBm (no IR)
+[01:04:40] nl80211: 2474-2494 @ 20 MHz 20 mBm (no OFDM) (no IR)
+[01:04:40] nl80211: 5170-5250 @ 80 MHz 20 mBm (no IR)
+[01:04:40] nl80211: 5250-5330 @ 80 MHz 20 mBm (DFS) (no IR)
+[01:04:40] nl80211: 5490-5730 @ 160 MHz 20 mBm (DFS) (no IR)
+[01:04:40] nl80211: 5735-5835 @ 80 MHz 20 mBm (no IR)
+[01:04:40] nl80211: 57240-63720 @ 2160 MHz 0 mBm
+[01:04:40] nl80211: Added 802.11b mode based on 802.11g information
+[01:04:40] Allowed channel: mode=1 chan=1 freq=2412 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=2 freq=2417 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=3 freq=2422 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=4 freq=2427 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=5 freq=2432 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=6 freq=2437 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=7 freq=2442 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=8 freq=2447 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=9 freq=2452 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=10 freq=2457 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=1 chan=11 freq=2462 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=1 freq=2412 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=2 freq=2417 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=3 freq=2422 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=4 freq=2427 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=5 freq=2432 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=6 freq=2437 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=7 freq=2442 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=8 freq=2447 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=9 freq=2452 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=10 freq=2457 MHz max_tx_power=20 dBm
+[01:04:40] Allowed channel: mode=0 chan=11 freq=2462 MHz max_tx_power=20 dBm
+[01:04:40] Completing interface initialization
+[01:04:40] Mode: IEEE 802.11g  Channel: 11  Frequency: 2462 MHz
+[01:04:40] DFS 0 channels required radar detection
+[01:04:40] nl80211: Set freq 2462 (ht_enabled=0, vht_enabled=0, bandwidth=20 MHz, cf1=2462 MHz, cf2=0 MHz)
+[01:04:40]   * freq=2462
+[01:04:40]   * vht_enabled=0
+[01:04:40]   * ht_enabled=0
+[01:04:40]   * channel_type=0
+[01:04:40] RATE[0] rate=10 flags=0x1
+[01:04:40] RATE[1] rate=20 flags=0x1
+[01:04:40] RATE[2] rate=55 flags=0x1
+[01:04:40] RATE[3] rate=110 flags=0x1
+[01:04:40] RATE[4] rate=60 flags=0x0
+[01:04:40] RATE[5] rate=90 flags=0x0
+[01:04:40] RATE[6] rate=120 flags=0x0
+[01:04:40] RATE[7] rate=180 flags=0x0
+[01:04:40] RATE[8] rate=240 flags=0x0
+[01:04:40] RATE[9] rate=360 flags=0x0
+[01:04:40] RATE[10] rate=480 flags=0x0
+[01:04:40] RATE[11] rate=540 flags=0x0
+[01:04:40] hostapd_setup_bss(hapd=0x1290800 (wlb), first=1)
+[01:04:40] wlb: Flushing old station entries
+[01:04:40] nl80211: flush -> DEL_STATION wlb (all)
+[01:04:40] wlb: Deauthenticate all stations
+[01:04:40] nl80211: sta_remove -> DEL_STATION wlb ff:ff:ff:ff:ff:ff --> -22 (Invalid argument)
+[01:04:40] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=0 addr=(nil) key_idx=0 set_tx=0 seq_len=0 key_len=0
+[01:04:40] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=0 addr=(nil) key_idx=1 set_tx=0 seq_len=0 key_len=0
+[01:04:40] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=0 addr=(nil) key_idx=2 set_tx=0 seq_len=0 key_len=0
+[01:04:40] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=0 addr=(nil) key_idx=3 set_tx=0 seq_len=0 key_len=0
+[01:04:40] Using interface wlb with hwaddr 32:07:4d:3a:96:04 and ssid "ProDNPhotog"
+[01:04:40] Deriving WPA PSK based on passphrase
+[01:04:40] SSID - hexdump_ascii(len=11):
+[01:04:40]      50 72 6f 44 4e 50 68 6f 74 6f 67                  ProDNPhotog     
+[01:04:40] PSK (ASCII passphrase) - hexdump_ascii(len=8):
+[01:04:40]      58 58 58 58 58 58 58 58                           XXXXXXXX        
+[01:04:40] PSK (from passphrase) - hexdump(len=32): 2b 8a b2 10 9c 22 4b 1c 5f e2 59 b8 32 47 fe 7b c4 c5 39 4d 14 f4 a4 b7 6f 1c 28 a3 0a 12 1d bc
+[01:04:40] random: Got 20/20 bytes from /dev/random
+[01:04:40] Get randomness: len=32 entropy=0
+[01:04:40] GMK - hexdump(len=32): 7d c9 f6 13 38 6d 10 2e c2 89 eb f0 a0 52 89 ab 75 2b aa 7e fa 6d d9 a7 50 c6 b5 87 70 ce 6e a0
+[01:04:40] Get randomness: len=32 entropy=0
+[01:04:40] Key Counter - hexdump(len=32): 3a 20 92 cd 62 0d 1d a3 96 4f 17 49 4a 7c 03 c4 5a 64 8c 0a 77 27 cd e0 8c 5d 51 e2 81 9f f0 84
+[01:04:40] WPA: Delay group state machine start until Beacon frames have been configured
+[01:04:40] >>> hostapd_eid_wmm: not including WMM element in beacon or probe response
+[01:04:40] nl80211: Set beacon (beacon_set=0)
+[01:04:40] nl80211: Beacon head - hexdump(len=62): 80 00 00 00 ff ff ff ff ff ff 32 07 4d 3a 96 04 32 07 4d 3a 96 04 00 00 00 00 00 00 00 00 00 00 64 00 11 04 00 0b 50 72 6f 44 4e 50 68 6f 74 6f 67 01 08 82 84 8b 96 0c 12 18 24 03 01 0b
+[01:04:40] nl80211: Beacon tail - hexdump(len=31): 2a 01 04 32 04 30 48 60 6c 30 14 01 00 00 0f ac 04 01 00 00 0f ac 04 01 00 00 0f ac 02 0c 00
+[01:04:40] nl80211: ifindex=9
+[01:04:40] nl80211: beacon_int=100
+[01:04:40] nl80211: dtim_period=2
+[01:04:40] nl80211: ssid - hexdump_ascii(len=11):
+[01:04:40]      50 72 6f 44 4e 50 68 6f 74 6f 67                  ProDNPhotog     
+[01:04:40]   * beacon_int=100
+[01:04:40]   * dtim_period=2
+[01:04:40] nl80211: hidden SSID not in use
+[01:04:40] nl80211: privacy=1
+[01:04:40] nl80211: auth_algs=0x3
+[01:04:40] nl80211: wpa_version=0x2
+[01:04:40] nl80211: key_mgmt_suites=0x2
+[01:04:40] nl80211: pairwise_ciphers=0x10
+[01:04:40] nl80211: group_cipher=0x10
+[01:04:40] WPA: Start group state machine to set initial keys
+[01:04:40] WPA: group state machine entering state GTK_INIT (VLAN-ID 0)
+[01:04:40] Get randomness: len=16 entropy=0
+[01:04:40] GTK - hexdump(len=16): 4a 35 85 0b 64 5d 63 ae 11 b9 2d 00 5e 1d bc 04
+[01:04:40] WPA: group state machine entering state SETKEYSDONE (VLAN-ID 0)
+[01:04:40] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=3 addr=0x47b343 key_idx=1 set_tx=1 seq_len=0 key_len=16
+[01:04:40] nl80211: KEY_DATA - hexdump(len=16): 4a 35 85 0b 64 5d 63 ae 11 b9 2d 00 5e 1d bc 04
+[01:04:40]    broadcast key
+[01:04:40] nl80211: Set wlb operstate 0->1 (UP)
+[01:04:40] netlink: Operstate: ifindex=9 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+[01:04:40] Failed to set TX queue parameters for queue 0.
+[01:04:40] Failed to set TX queue parameters for queue 1.
+[01:04:40] Failed to set TX queue parameters for queue 2.
+[01:04:40] Failed to set TX queue parameters for queue 3.
+[01:04:40] nl80211: Set Deny ACL (num_mac_acl=0)
+[01:04:40] nl80211: Failed to set MAC ACL: -1 (Operation not permitted)
+[01:04:40] Failed to set deny acl
+[01:04:40] wlb: interface state UNINITIALIZED->ENABLED
+[01:04:40] wlb: AP-ENABLED 
+[01:04:40] wlb: Setup of interface done.
+[01:04:40] ctrl_iface not configured!
+[01:04:40] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=6 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=16 ifname=wlp4s0sta1 operstate=2 linkmode=0 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:04:40] RX ctrl_iface - hexdump_ascii(len=6):
+[01:04:40]      41 54 54 41 43 48                                 ATTACH          
+[01:04:40] CTRL_IFACE monitor attached /tmp/wpa_ctrl_4015-0\x00
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:41] RTM_NEWLINK: ifi_index=11 ifname=wlbmon operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:04:41] RTM_NEWLINK: ifi_index=11 ifname=wlbmon operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:10:50] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=0 ifi_family=0 ifi_flags=0x1002 ()
+[01:10:50] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=0 linkmode=0 ifi_family=0 ifi_flags=0x1043 ([UP][RUNNING])
+[01:10:50] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=5 linkmode=0 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:50] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=5 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:50] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=5 linkmode=0 ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+[01:10:51] nl80211: Set IF_OPER_UP again based on ifi_flags and expected operstate
+[01:10:51] netlink: Operstate: ifindex=9 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=5 linkmode=1 ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+[01:10:51] nl80211: Set IF_OPER_UP again based on ifi_flags and expected operstate
+[01:10:51] netlink: Operstate: ifindex=9 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=6 linkmode=1 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=5 linkmode=1 ifi_family=0 ifi_flags=0x11003 ([UP][LOWER_UP])
+[01:10:51] nl80211: Set IF_OPER_UP again based on ifi_flags and expected operstate
+[01:10:51] netlink: Operstate: ifindex=9 linkmode=-1 (no change), operstate=6 (IF_OPER_UP)
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=6 linkmode=1 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:10:51] RTM_NEWLINK: ifi_index=16 ifname=wlp4s0sta1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:51] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:51] nl80211: Event message available
+[01:10:51] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:10:51] RTM_NEWLINK: ifi_index=9 ifname=wlb operstate=6 linkmode=1 ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:10:51] nl80211: Event message available
+[01:10:51] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:10:51] wlb: nl80211: Scan trigger
+[01:10:51] wlb: Event SCAN_STARTED (47) received
+[01:10:51] Unknown event 47
+[01:10:51] RTM_NEWLINK: ifi_index=16 ifname=wlp4s0sta1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:51] nl80211: Event message available
+[01:10:51] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:51] nl80211: Regulatory beacon hint
+[01:10:51] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:51] nl80211: Event message available
+[01:10:51] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:51] nl80211: Regulatory beacon hint
+[01:10:51] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:52] nl80211: Event message available
+[01:10:52] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:52] nl80211: Regulatory beacon hint
+[01:10:52] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 42 (NL80211_CMD_REG_BEACON_HINT) received for wlb
+[01:10:54] nl80211: Regulatory beacon hint
+[01:10:54] wlb: Event CHANNEL_LIST_CHANGED (28) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:10:54] wlb: nl80211: New scan results available
+[01:10:54] nl80211: Scan probed for SSID ''
+[01:10:54] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:10:54] wlb: Event SCAN_RESULTS (3) received
+[01:10:54] nl80211: Event message available
+[01:10:54] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:10:54] wlb: nl80211: Scan trigger
+[01:10:54] wlb: Event SCAN_STARTED (47) received
+[01:10:54] Unknown event 47
+[01:10:55] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:55] nl80211: Event message available
+[01:10:55] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:10:55] nl80211: Event message available
+[01:10:55] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 16 wdev 0x0)
+[01:10:56] RTM_NEWLINK: ifi_index=16 ifname=wlp4s0sta1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1002 ()
+[01:10:56] nl80211: Event message available
+[01:10:56] nl80211: Ignored event (cmd=35) for foreign interface (ifindex 16 wdev 0x0)
+[01:10:56] nl80211: Event message available
+[01:10:56] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:10:56] RTM_NEWLINK: ifi_index=16 ifname=wlp4s0sta1 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1002 ()
+[01:10:56] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:56] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:56] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:56] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:10:58] nl80211: Event message available
+[01:10:58] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:10:58] wlb: nl80211: New scan results available
+[01:10:58] nl80211: Scan probed for SSID ''
+[01:10:58] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:10:58] wlb: Event SCAN_RESULTS (3) received
+[01:10:58] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:11:00] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:11:00] nl80211: Event message available
+[01:11:00] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:11:03] nl80211: Event message available
+[01:11:03] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:11:08] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:11:08] nl80211: Event message available
+[01:11:08] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:11:26] nl80211: Event message available
+[01:11:26] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:11:27] nl80211: Event message available
+[01:11:27] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:11:27] wlb: nl80211: Scan trigger
+[01:11:27] wlb: Event SCAN_STARTED (47) received
+[01:11:27] Unknown event 47
+[01:11:31] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:11:31] nl80211: Event message available
+[01:11:31] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:11:31] wlb: nl80211: New scan results available
+[01:11:31] nl80211: Scan probed for SSID ''
+[01:11:31] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:11:31] wlb: Event SCAN_RESULTS (3) received
+[01:11:31] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:11:31] nl80211: Event message available
+[01:11:31] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:11:59] nl80211: Event message available
+[01:11:59] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:12:04] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:12:04] nl80211: Event message available
+[01:12:04] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:12:10] nl80211: Event message available
+[01:12:10] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:12:10] wlb: nl80211: Scan trigger
+[01:12:10] wlb: Event SCAN_STARTED (47) received
+[01:12:10] Unknown event 47
+[01:12:14] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:12:14] nl80211: Event message available
+[01:12:14] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:12:14] wlb: nl80211: New scan results available
+[01:12:14] nl80211: Scan probed for SSID ''
+[01:12:14] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:12:14] wlb: Event SCAN_RESULTS (3) received
+[01:12:43] nl80211: Event message available
+[01:12:43] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:12:47] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:12:47] nl80211: Event message available
+[01:12:47] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:13:03] nl80211: Event message available
+[01:13:03] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:13:03] wlb: nl80211: Scan trigger
+[01:13:03] wlb: Event SCAN_STARTED (47) received
+[01:13:03] Unknown event 47
+[01:13:07] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:13:07] nl80211: Event message available
+[01:13:07] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:13:07] wlb: nl80211: New scan results available
+[01:13:07] nl80211: Scan probed for SSID ''
+[01:13:07] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:13:07] wlb: Event SCAN_RESULTS (3) received
+[01:13:36] nl80211: Event message available
+[01:13:36] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:13:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:13:40] nl80211: Event message available
+[01:13:40] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:14:06] nl80211: Event message available
+[01:14:06] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:14:06] wlb: nl80211: Scan trigger
+[01:14:06] wlb: Event SCAN_STARTED (47) received
+[01:14:06] Unknown event 47
+[01:14:10] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:14:10] nl80211: Event message available
+[01:14:10] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:14:10] wlb: nl80211: New scan results available
+[01:14:10] nl80211: Scan probed for SSID ''
+[01:14:10] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:14:10] wlb: Event SCAN_RESULTS (3) received
+[01:14:38] wlb: WPA rekeying GTK
+[01:14:38] WPA: group state machine entering state SETKEYS (VLAN-ID 0)
+[01:14:38] Get randomness: len=16 entropy=0
+[01:14:38] GTK - hexdump(len=16): 5d d0 c0 96 52 d6 c2 8e a2 1e ba cc a3 7b 0e 4a
+[01:14:38] wpa_group_setkeys: GKeyDoneStations=0
+[01:14:38] WPA: group state machine entering state SETKEYSDONE (VLAN-ID 0)
+[01:14:38] wpa_driver_nl80211_set_key: ifindex=9 (wlb) alg=3 addr=0x47b343 key_idx=2 set_tx=1 seq_len=0 key_len=16
+[01:14:38] nl80211: KEY_DATA - hexdump(len=16): 5d d0 c0 96 52 d6 c2 8e a2 1e ba cc a3 7b 0e 4a
+[01:14:38]    broadcast key
+[01:14:39] nl80211: Event message available
+[01:14:39] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:14:43] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:14:43] nl80211: Event message available
+[01:14:43] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:15:09] nl80211: Event message available
+[01:15:09] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:15:09] wlb: nl80211: Scan trigger
+[01:15:09] wlb: Event SCAN_STARTED (47) received
+[01:15:09] Unknown event 47
+[01:15:13] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:15:13] nl80211: Event message available
+[01:15:13] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:15:13] wlb: nl80211: New scan results available
+[01:15:13] nl80211: Scan probed for SSID ''
+[01:15:13] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:15:13] wlb: Event SCAN_RESULTS (3) received
+[01:15:42] nl80211: Event message available
+[01:15:42] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:15:46] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:15:46] nl80211: Event message available
+[01:15:46] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:15:55] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:15:55] nl80211: Event message available
+[01:15:55] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:15:55] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:15:55] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:15:56] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 operstate=2 linkmode=1 ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:16:00] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:16:00] nl80211: Event message available
+[01:16:00] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:16:03] nl80211: Event message available
+[01:16:03] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:16:08] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:16:08] nl80211: Event message available
+[01:16:08] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:16:12] nl80211: Event message available
+[01:16:12] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:16:12] wlb: nl80211: Scan trigger
+[01:16:12] wlb: Event SCAN_STARTED (47) received
+[01:16:12] Unknown event 47
+[01:16:16] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:16:16] nl80211: Event message available
+[01:16:16] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:16:16] wlb: nl80211: New scan results available
+[01:16:16] nl80211: Scan probed for SSID ''
+[01:16:16] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:16:16] wlb: Event SCAN_RESULTS (3) received
+[01:16:26] nl80211: Event message available
+[01:16:26] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:16:31] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:16:31] nl80211: Event message available
+[01:16:31] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:16:59] nl80211: Event message available
+[01:16:59] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:17:04] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:17:04] nl80211: Event message available
+[01:17:04] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:17:15] nl80211: Event message available
+[01:17:15] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:17:15] wlb: nl80211: Scan trigger
+[01:17:15] wlb: Event SCAN_STARTED (47) received
+[01:17:15] Unknown event 47
+[01:17:19] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:17:19] nl80211: Event message available
+[01:17:19] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:17:19] wlb: nl80211: New scan results available
+[01:17:19] nl80211: Scan probed for SSID ''
+[01:17:19] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:17:19] wlb: Event SCAN_RESULTS (3) received
+[01:17:42] nl80211: Event message available
+[01:17:42] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:17:47] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:17:47] nl80211: Event message available
+[01:17:47] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:18:19] nl80211: Event message available
+[01:18:19] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:18:19] wlb: nl80211: Scan trigger
+[01:18:19] wlb: Event SCAN_STARTED (47) received
+[01:18:19] Unknown event 47
+[01:18:22] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:18:22] nl80211: Event message available
+[01:18:22] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:18:22] wlb: nl80211: New scan results available
+[01:18:22] nl80211: Scan probed for SSID ''
+[01:18:22] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:18:22] wlb: Event SCAN_RESULTS (3) received
+[01:18:35] nl80211: Event message available
+[01:18:35] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
+[01:18:40] RTM_NEWLINK: ifi_index=4 ifname=wlp4s0 wext ifi_family=0 ifi_flags=0x1003 ([UP])
+[01:18:40] nl80211: Event message available
+[01:18:40] nl80211: Ignored event (cmd=34) for foreign interface (ifindex 4 wdev 0x0)
+[01:19:22] nl80211: Event message available
+[01:19:22] nl80211: Drv Event 33 (NL80211_CMD_TRIGGER_SCAN) received for wlb
+[01:19:22] wlb: nl80211: Scan trigger
+[01:19:22] wlb: Event SCAN_STARTED (47) received
+[01:19:22] Unknown event 47
+[01:19:25] RTM_NEWLINK: ifi_index=9 ifname=wlb wext ifi_family=0 ifi_flags=0x11043 ([UP][RUNNING][LOWER_UP])
+[01:19:25] nl80211: Event message available
+[01:19:25] nl80211: Drv Event 34 (NL80211_CMD_NEW_SCAN_RESULTS) received for wlb
+[01:19:25] wlb: nl80211: New scan results available
+[01:19:25] nl80211: Scan probed for SSID ''
+[01:19:25] nl80211: Scan included frequencies: 2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484 5180 5190 5200 5210 5220 5230 5240 5260 5280 5290 5300 5310 5320 5500 5520 5540 5560 5580 5600 5620 5640 5660 5680 5700 5720 5745 5765 5785 5805 5825
+[01:19:25] wlb: Event SCAN_RESULTS (3) received
+[01:19:38] nl80211: Event message available
+[01:19:38] nl80211: Ignored event (cmd=33) for foreign interface (ifindex 4 wdev 0x0)
