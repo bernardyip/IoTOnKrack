@@ -68,6 +68,21 @@ function reset_interfaces() {
     done
 }
 
+function clean_up() {
+	echo "Ctrl-C detected. Cleaning up..."
+	disown
+	echo "Remove monitor interface"
+	int=$(cat ./krackattacks-scripts/hostapd/hostapd.conf | grep -o "^interface=.*" | sed -n 's/^interface=//p')
+	iw ${int}mon del
+
+	echo "Restarting your network services"
+	rfkill unblock wifi
+	service networking restart
+	service network-manager start
+	reset_interfaces
+	exit 0
+}
+
 if [[ $# -eq 1 && $1 = "-i" ]]
 then
 	install_dependencies
@@ -87,15 +102,11 @@ service networking stop
 service network-manager stop
 rfkill unblock wifi
 
-echo "Running exploit, join testnetwork:abcdefgh. Press Ctrl+C to stop attack"
-sudo ./krackattacks-scripts/krackattack/krack-test-client.py
+trap clean_up INT
+echo -e "Running exploit, join \e[32mtestnetwork:abcdefgh\e[0m. Press \e[31mCtrl+C to stop attack\e[0m"
+exec ./logmon.sh &
+sudo stdbuf -oL python krackattacks-scripts/krackattack/krack-test-client.py | tee krackattack.log
 
-echo "Remove monitor interface"
-int=$(cat ./krackattacks-scripts/hostapd/hostapd.conf | grep -o "^interface=.*" | sed -n 's/^interface=//p')
-iw ${int}mon del
 
-echo "Restarting back your network services"
-rfkill unblock wifi
-service networking restart
-service network-manager start
-reset_interfaces
+
+
