@@ -501,7 +501,13 @@ def Reset(Ropt):
     try:
 	time.sleep(1)
 	if Ropt == "INTF":
-	    os.system('airmon-ng stop ' + mon_iface)
+	    #os.system('airmon-ng stop ' + mon_iface)
+	    print "Resetting " + mon_iface + " to managed"
+	    os.system("ifconfig " + mon_iface + " down")
+	    os.system("iwconfig " + mon_iface + " mode managed")
+	    os.system("ifconfig " + mon_iface + " up")
+	    print "Starting NetworkManager!"
+	    os.system("service network-manager start")
 	    # os.system('airmon-ng stop ' + wireless_interface)
 	# elif Ropt == "INTF_NoMon":
 	#    os.system('airmon-ng stop ' + wireless_interface)
@@ -510,9 +516,14 @@ def Reset(Ropt):
 	    db_connection.close()
 	else:
 	    os.system('rm out.csv-01.*')
-	    os.system('airmon-ng stop ' + mon_iface)
+	    #os.system('airmon-ng stop ' + mon_iface)
+	    print "Resetting " + mon_iface + " to managed"
+	    os.system("ifconfig " + mon_iface + " down")
+	    os.system("iwconfig " + mon_iface + " mode managed")
+	    os.system("ifconfig " + mon_iface + " up")
+	    print "Starting NetworkManager!"
 	    os.system("service network-manager start")
-	    os.system("nmcli n on")
+	    #os.system("service network-manager start")
 	    # os.system('airmon-ng stop ' + wireless_interface)
 	    cursor.close()
 	    db_connection.close()
@@ -818,17 +829,22 @@ except:
 
 # Creating Monitor Interface	
 try:    
-	os.system("nmcli n off")
-	os.system("rfkill unblock wifi")
-	print "Restarting wireless interface: " + wireless_interface + "\n"
-	os.system('ifconfig ' + wireless_interface + ' down')
-	os.system('ifconfig ' + wireless_interface + ' up')
+	print "_|_ Restarting wireless interface: " + wireless_interface + "\n"
+	#os.system('ifconfig ' + wireless_interface + ' down')
+	#os.system('ifconfig ' + wireless_interface + ' up')
 
 	print "Using wireless interface: " + wireless_interface + "\n"
 
-	print 'Creating a monitoring interface'
+	print '_|_ Creating a monitoring interface'
 
-	airmon_out = Popen(["airmon-ng", "start", wireless_interface], stdout=PIPE).communicate()[0]
+	#airmon_out = Popen(["airmon-ng", "start", wireless_interface], stdout=PIPE).communicate()[0]
+
+	print "Stopping NetworkManager!"
+	os.system("service network-manager stop")
+	os.system("sleep 3")
+	os.system("ifconfig " + wireless_interface + " down")
+	os.system("iwconfig " + wireless_interface + " mode monitor")
+	os.system("ifconfig " + wireless_interface + " up")
 
 	mon_iface = get_moniface()
 
@@ -838,12 +854,12 @@ try:
 		print "Monitor interface cannot be created. Make sure your card support monitor mode and Aircrack-ng suite.\n"
 
 	if 'NetworkManager' in airmon_out:
-		print "\n 'NetworkManager' is running. I will stop it because it affects the application!"
-		os.system("service network-manager stop")
-		os.system("rfkill unblock wifi")
+		print "\n_|_ 'NetworkManager' is running. I will stop it because it affects the application!"
+		#os.system("service network-manager stop")
+		#os.system("rfkill unblock wifi")
 	if 'wpa_supplicant' in airmon_out:
-		print "\n 'wpa_supplicant' is running. I will stop it because it affects the application!"
-		os.system("pkill wpa_supplicant")
+		print "\n_|_ 'wpa_supplicant' is running. I will stop it because it affects the application!"
+		#os.system("pkill wpa_supplicant")
 except:
 	print bcolors.FAIL + bcolors.BOLD + "Unexpected error during Creating Monitor Interface: {}\n".format(sys.exc_info()[0]) + bcolors.ENDC
     
