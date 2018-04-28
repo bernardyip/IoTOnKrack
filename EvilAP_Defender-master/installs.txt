@@ -1,0 +1,8 @@
+MySQLDb:
+
+sudo apt-get install python-dev libmysqlclient-dev
+sudo -H pip install MySQL-python
+
+netaddr:
+
+sudo =H pip install netaddr 

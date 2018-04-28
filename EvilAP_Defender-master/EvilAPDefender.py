@@ -511,6 +511,8 @@ def Reset(Ropt):
 	else:
 	    os.system('rm out.csv-01.*')
 	    os.system('airmon-ng stop ' + mon_iface)
+	    os.system("service network-manager start")
+	    os.system("nmcli n on")
 	    # os.system('airmon-ng stop ' + wireless_interface)
 	    cursor.close()
 	    db_connection.close()
@@ -792,10 +794,10 @@ try:
     output = Popen("iwconfig", stdout=PIPE).communicate()[0]
     wireless_interface = ""
     mon_iface = ""
-    if "wlan" in output:
+    if "wlp" in output:
 	wireless_interface = output[0:6].strip()
     else:
-	print bcolors.FAIL + "\n\nCould not find the wireless interface (wlan)!\n" + bcolors.ENDC
+	print bcolors.FAIL + "\n\nCould not find the wireless interface (wlp)!\n" + bcolors.ENDC
 	print "Exiting the application ... please wait ..."
 	Reset("DB")
 	sys.exit(2)
@@ -816,6 +818,8 @@ except:
 
 # Creating Monitor Interface	
 try:    
+	os.system("nmcli n off")
+	os.system("rfkill unblock wifi")
 	print "Restarting wireless interface: " + wireless_interface + "\n"
 	os.system('ifconfig ' + wireless_interface + ' down')
 	os.system('ifconfig ' + wireless_interface + ' up')
@@ -836,6 +840,7 @@ try:
 	if 'NetworkManager' in airmon_out:
 		print "\n 'NetworkManager' is running. I will stop it because it affects the application!"
 		os.system("service network-manager stop")
+		os.system("rfkill unblock wifi")
 	if 'wpa_supplicant' in airmon_out:
 		print "\n 'wpa_supplicant' is running. I will stop it because it affects the application!"
 		os.system("pkill wpa_supplicant")
