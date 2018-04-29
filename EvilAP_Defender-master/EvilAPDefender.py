@@ -887,6 +887,9 @@ try:
 except:
 	print bcolors.FAIL + bcolors.BOLD + "Unexpected error during scanning for available SSIDs: {}\n".format(sys.exc_info()[0]) + bcolors.ENDC
 
+print "Waiting for airodump to complete"
+import time
+time.sleep(3) # wait for airodump to fully close the file
 ParseAirodumpCSV()
         
 if Mode == "Normal":
