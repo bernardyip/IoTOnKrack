@@ -37,6 +37,15 @@ function process_line() {
 
 	mac_addr=""
 	hs=""
+	get_mac_addr mac_addr "$line" '\[.*\] .*m([a-f0-9:]*): .* Client \(re\)installs an all-zero key in the 4-way handshake \(this is very bad\)\.'
+	if [[ ${#mac_addr} -gt 0 ]]; then
+		filename=${mac_addr//:/-}
+		echo $filename
+		echo "${timestamp} ${mac_addr} (re)installs an all-zero key in the 4-way handshake." >> "vuln-clients/$filename"
+	fi
+
+	mac_addr=""
+	hs=""
 	get_mac_addr_and_hs mac_addr hs "$line" '\[.*\] .*m([a-f0-9:]*): Client always installs the group key in the (.*) handshake with a zero replay counter \(this is bad\).'
 	if [[ ${#mac_addr} -gt 0 ]]; then
 		filename=${mac_addr//:/-}
