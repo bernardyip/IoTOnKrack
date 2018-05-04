@@ -8,6 +8,7 @@ fi
 function install_dependencies() {
 	echo "Installing dependencies"
 	apt update
+	apt install pcregrep
 	apt install -y git libnl-3-dev libnl-genl-3-dev pkg-config libssl-dev net-tools git sysfsutils python-scapy python-pip aircrack-ng
 	pip install pycryptodomex
 }
